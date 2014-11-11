@@ -9,29 +9,6 @@
  * Main module of the application.
  */
  /*
-angular
-  .module('angularAppApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
 */
 
 define(['angularAMD', 'angular-route'], function (angularAMD) {
@@ -42,21 +19,16 @@ define(['angularAMD', 'angular-route'], function (angularAMD) {
         templateUrl: 'views/main.html', 
         controller: 'MainCtrl',
         controllerUrl: 'controllers/main'
-    }))
-    /*
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerUrl: 'controllers/main.js'      
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
+      }))
+      .when("/about", 
+      angularAMD.route({
+        templateUrl: 'views/about.html', 
+        controller: 'AboutCtrl',
+        controllerUrl: 'controllers/about'
+      }))
       .otherwise({
         redirectTo: '/'
-      });*/
+      });
   });
   return angularAMD.bootstrap(app);
 });
